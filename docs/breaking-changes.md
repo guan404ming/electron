@@ -19,6 +19,18 @@ This document uses the following convention to categorize breaking changes:
 `BrowserWindow.IsVisibleOnAllWorkspaces()` will now return false on Linux if the
 window is not currently visible.
 
+### Removed: `null` value for `session` property in `ProtocolResponse`
+
+This deprecated feature has been removed.
+
+Previously, setting the `ProtocolResponse.session` property to `null`
+would create a random independent session. This is no longer supported.
+
+Using single-purpose sessions here is discouraged due to overhead costs;
+however, old code that needs to preserve this behavior can emulate it by
+creating a random session with `session.fromPartition(some_random_string)`
+and then using it in `ProtocolResponse.session`.
+
 ## Planned Breaking API Changes (36.0)
 
 ### Utility Process unhandled rejection behavior change
