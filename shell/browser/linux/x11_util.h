@@ -5,15 +5,9 @@
 #ifndef ELECTRON_SHELL_BROWSER_LINUX_X11_UTIL_H_
 #define ELECTRON_SHELL_BROWSER_LINUX_X11_UTIL_H_
 
-#include "ui/ozone/public/ozone_platform.h"
-
 namespace x11_util {
 
-bool IsX11() {
-  return ui::OzonePlatform::GetInstance()
-      ->GetPlatformProperties()
-      .electron_can_call_x11;
-}
+bool IsX11();
 
 }  // namespace x11_util
 
